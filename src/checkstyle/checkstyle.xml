@@ -123,7 +123,7 @@
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck">
 			<property name="id" value="bannedJUnitJupiterImports"/>
-			<property name="regexp" value="true" />
+			<property name="regexp" value="false" />
 			<property name="illegalClasses" value="^org\.junit\.jupiter\..+" />
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck">
