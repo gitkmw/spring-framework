@@ -48,6 +48,9 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 
 	@Override
 	public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException {
+		// optimize 用来控制通过cglib创建的代理是否使用激进的优化策略,除非完全了解AOP代理如何处理优化,否则不推荐用户使用这个设置.
+		// proxyTarget 这个属性为true时,目标类本身被代理而不是目标类的接口
+		// hasNoUserSuppliedProxyInterfaces 是否存在代理接口
 		if (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
 			Class<?> targetClass = config.getTargetClass();
 			if (targetClass == null) {
